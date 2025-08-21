@@ -3,50 +3,49 @@
 */
 #CentralHeader{
     background-color: #048404;
-    padding: 8px 16px;
+    padding: 4px 12px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    height: 50px;
 }
 #CentralHamburguerMenu{
-    font-size: 24px;
+    font-size: 22px;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
 }
 #CentralIcon{
-padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
 }
 #CentralSearchBar{
-    flex: 1;
+    flex: 0 1 500px;
     display: flex;
-    max-width: 500px;
-    padding: 8px;
+    justify-content: center;
+    margin: 0 auto;
 }
 #CentralSearchBar input{
     flex: 1;
     padding: 6px;
     border: none;
-    border-radius: 4px 0 0 4px;
+    border-radius: 4px;
     background-color: #0E7234;
+    /*background-image:url(/Frontend/Img/CentralSearchIcon.png);*/
 }
-#CentralSearchBar button{
-    padding: 6px 12px;
-    border: none;
-    background-color: #0E7234;
-    color: white;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-}
-#CentralUserUptions{
+#CentralUserOptions{
+    margin-left: auto;
     display: flex;
     align-items: center;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+#CentralUserOptions:hover{
     background-color: #0E7234;
-    border-radius: 0 20px 20px 0;
-    overflow: hidden;
 }
 
 /*
@@ -61,13 +60,5 @@ padding: 6px 12px;
 .UsernameAlias{
     padding: 6px 12px;
     font-size: 14px;
-}
-.UsernameSettings{
-    padding: 6px 12px;
-    border: none;
     cursor: pointer;
-    background: #0E7234;
-}
-.UsernameSettings:hover{
-    background: #222;
 }
