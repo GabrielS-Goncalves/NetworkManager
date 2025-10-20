@@ -1,0 +1,138 @@
+<script>
+    import router from '@/router';
+import { ref } from 'vue';
+
+    // Váriavel para controlar a abertura/fechamento do menu
+    const isMenuOpen = ref(false);
+
+    // Função que será chamada ao clicar no botão hamburguer
+    function toggleMenu() {
+        isMenuOpen.value = !isMenuOpen.value;
+        console.log('Menu Hamburguer clicado! Estado:', isMenuOpen.value);
+    }
+
+    // Função para lógica básica da barra de pesquisa.
+    const searchTerm = ref('');
+    function search() {
+        if (searchTerm.value) {
+            console.log('Pesquisando por:', searchTerm.value);
+        }
+    }
+
+    // Função para lógica básica do botão do usuário.
+    function goToProfile() {
+        console.log('Indo para a página de perfil...');
+    }
+</script>
+
+<template>
+    <nav class="CentralNavbar">
+        <div class="Navbar-Left">
+            <button @click="toggleMenu" class="Menu-button">
+                <span class="Burguer-icon" :class="{'Is-active': isMenuOpen}">☰</span>
+            </button>
+        </div>
+
+        <!--<div class="Navbar-logo"></div>-->
+        <div class="Navbar-center">
+            <div class="Search-bar">
+                <input type="text" v-model="searchTerm" placeholder="Search..." @keyup.enter="search">
+                <button @click="search">🔍</button>
+            </div>
+        </div>
+        <div class="Navbar-right">
+            <button @click="goToProfile" class="User-button">
+                <span>👤 Opções</span>
+            </button>
+        </div>
+    </nav>
+</template>
+
+<style scoped>
+/* Flexbox para o Layout da Navbar */
+.CentralNavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d7233;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.Navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.Navbar-center {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 30px;
+}
+
+.Search-Bar {
+    display: inline-flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+}
+
+.Search-Bar input {
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+    outline: none;
+    color: #333;
+}
+
+.Search-Bar button {
+    background-color: #42b883;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.Search-Bar button:hover {
+    background-color: #368d66;
+}
+
+.Menu-button, .User-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.1em;
+    transform: opacity 0.2s;
+}
+
+.Menu-button:hover, .User-button:hover {
+    opacity: 0.8;
+}
+
+.Burguer-icon {
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+.Burguer-icon.is-active {
+    color: #42b883;
+}
+</style>
