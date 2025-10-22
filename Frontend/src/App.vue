@@ -4,6 +4,7 @@
   import CentralNavbar from './components/CentralNavbar.vue';
   import ContadorButton from './components/ContadorButton.vue';
 
+
   const mensagem = ref('Olá, Mundo!')
 </script>
 

@@ -1,6 +1,6 @@
 <script>
     import router from '@/router';
-import { ref } from 'vue';
+    import { ref } from 'vue';
 
     // Váriavel para controlar a abertura/fechamento do menu
     const isMenuOpen = ref(false);
@@ -54,11 +54,12 @@ import { ref } from 'vue';
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
     background-color: #0d7233;
     color: white;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -68,27 +69,30 @@ import { ref } from 'vue';
 .Navbar-left {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-left: 15px;
+.Navbar-right {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .Navbar-center {
     flex-grow: 1;
     text-align: center;
     margin: 0 30px;
+    min-width: 0;
 }
 
 .Search-Bar {
-    display: inline-flex;
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
-    max-width: 400px;
-    width: 100%;
 }
 
 .Search-Bar input {
