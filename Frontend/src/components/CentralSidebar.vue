@@ -5,7 +5,7 @@
 
     const menuItems = [
         {name: 'Dashboard', icon: '🏠', to: '/'},
-        {name: 'Network', icon: '🌐', to: '/network'},
+        {name: 'IPAM', icon: '🌐', to: '/ipam'},
         {name: 'System', icon: '⚙️', to: '/system'},
         {name: 'Logs', icon: '📑', to: '/Logs'},
     ];

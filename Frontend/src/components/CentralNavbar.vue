@@ -1,14 +1,14 @@
 <script>
     import router from '@/router';
     import { ref } from 'vue';
+    import { useSidebarStore } from '@/stores/useSidebarStore';
 
     // Váriavel para controlar a abertura/fechamento do menu
-    const isMenuOpen = ref(false);
+    const sidebarStore = useSidebarStore();
 
     // Função que será chamada ao clicar no botão hamburguer
     function toggleMenu() {
-        isMenuOpen.value = !isMenuOpen.value;
-        console.log('Menu Hamburguer clicado! Estado:', isMenuOpen.value);
+        sidebarStore.toggleSidebar();
     }
 
     // Função para lógica básica da barra de pesquisa.
@@ -29,7 +29,7 @@
     <nav class="CentralNavbar">
         <div class="Navbar-Left">
             <button @click="toggleMenu" class="Menu-button">
-                <span class="Burguer-icon" :class="{'Is-active': isMenuOpen}">☰</span>
+                <span class="Burguer-icon" :class="{'Is-active': sidebarStore.isOpen}">☰</span>
             </button>
         </div>
 
