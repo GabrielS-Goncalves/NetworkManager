@@ -4,8 +4,10 @@
   import CentralNavbar from './components/CentralNavbar.vue';
   import ContadorButton from './components/ContadorButton.vue';
   import CentralSidebar from './components/CentralSidebar.vue';
+  import { useSidebarStore } from './stores/useSidebarStore';
 
   const mensagem = ref('Olá, Mundo!')
+  const sidebarStore = useSidebarStore
 </script>
 
 <template>
@@ -13,7 +15,8 @@
     <central-navbar />
     <CentralSidebar />
 
-    <main class="Main-content">
+    <main :class="['Main-content', {'Sidebar-active': sidebarStore.isOpen}]">
+      <router-view />
       <h1>Bem-vindo ao NetworkManager!</h1>
       <p>Barra de navegação pronta!</p>
       <p>Barra lateral em produção!</p>
@@ -39,5 +42,11 @@
   .Main-content {
     padding-top: 80px;
     padding-left: 20px;
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+  }
+
+  .Main-content.Sidebar-active {
+    margin-left: 250px;
   }
 </style>

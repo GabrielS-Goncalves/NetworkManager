@@ -1,5 +1,4 @@
-<script>
-    import router from '@/router';
+<script setup>
     import { ref } from 'vue';
     import { useSidebarStore } from '@/stores/useSidebarStore';
 

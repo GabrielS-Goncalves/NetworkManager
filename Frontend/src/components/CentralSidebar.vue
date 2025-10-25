@@ -1,4 +1,4 @@
-<script>
+<script setup>
     import { useSidebarStore } from '@/stores/useSidebarStore';
 
     const sidebarStore = useSidebarStore();
@@ -6,7 +6,7 @@
     const menuItems = [
         {name: 'Dashboard', icon: '🏠', to: '/'},
         {name: 'IPAM', icon: '🌐', to: '/ipam'},
-        {name: 'System', icon: '⚙️', to: '/system'},
+        {name: 'Settings', icon: '⚙️', to: '/Settings'},
         {name: 'Logs', icon: '📑', to: '/Logs'},
     ];
 </script>
