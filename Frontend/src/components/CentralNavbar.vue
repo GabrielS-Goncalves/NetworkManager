@@ -2,14 +2,13 @@
     import { ref } from 'vue';
     import { useSidebarStore } from '@/stores/useSidebarStore';
 
+    // Função que será chamada ao clicar no botão hamburguer
     // Váriavel para controlar a abertura/fechamento do menu
     const sidebarStore = useSidebarStore();
-
-    // Função que será chamada ao clicar no botão hamburguer
     function toggleMenu() {
         sidebarStore.toggleSidebar();
     }
-
+    
     // Função para lógica básica da barra de pesquisa.
     const searchTerm = ref('');
     function search() {
@@ -17,7 +16,7 @@
             console.log('Pesquisando por:', searchTerm.value);
         }
     }
-
+    
     // Função para lógica básica do botão do usuário.
     function goToProfile() {
         console.log('Indo para a página de perfil...');
