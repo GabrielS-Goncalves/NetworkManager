@@ -86,5 +86,42 @@
         padding: 8px 0;
     }
 
-    
+    .Dropdown-header {
+        padding: 8px 15px;
+        font-weight: bold;
+        color: #333;
+        cursor: default;
+    }
+
+    .App-version {
+        font-size: 0.8em;
+        color: #667;
+        padding: 4px 15px 10px;
+    }
+
+    .Dropdown-item {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 10px 15px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+        transition: background-color 0.2s;
+    }
+
+    .Dropdown-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .Logoff-button {
+        color: #e74c3c;
+    }
+
+    .Dropdown-divider {
+        border: 0;
+        height: 1px;
+        background: #ecf0f1;
+    }
 </style>

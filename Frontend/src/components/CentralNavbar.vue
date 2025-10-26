@@ -1,6 +1,7 @@
 <script setup>
     import { ref } from 'vue';
     import { useSidebarStore } from '@/stores/useSidebarStore';
+    import UserDropdown from './UserDropdown.vue';
 
     // Função que será chamada ao clicar no botão hamburguer
     // Váriavel para controlar a abertura/fechamento do menu
@@ -16,32 +17,28 @@
             console.log('Pesquisando por:', searchTerm.value);
         }
     }
-    
-    // Função para lógica básica do botão do usuário.
-    function goToProfile() {
-        console.log('Indo para a página de perfil...');
-    }
 </script>
 
 <template>
     <nav class="CentralNavbar">
+        <!--Divisão para Sidebar-->
         <div class="Navbar-Left">
             <button @click="toggleMenu" class="Menu-button">
                 <span class="Burguer-icon" :class="{'Is-active': sidebarStore.isOpen}">☰</span>
             </button>
         </div>
 
-        <!--<div class="Navbar-logo"></div>-->
+        <!--Divisão para Search bar-->
         <div class="Navbar-center">
             <div class="Search-bar">
                 <input type="text" v-model="searchTerm" placeholder="Search..." @keyup.enter="search">
                 <button @click="search">🔍</button>
             </div>
         </div>
+
+        <!--Divisão para User menu-->
         <div class="Navbar-right">
-            <button @click="goToProfile" class="User-button">
-                <span>👤 Opções</span>
-            </button>
+            <UserDropdown />
         </div>
     </nav>
 </template>
@@ -71,6 +68,7 @@
 }
 
 .Navbar-right {
+    position: relative;
     display: flex;
     align-items: center;
     flex-shrink: 0;
