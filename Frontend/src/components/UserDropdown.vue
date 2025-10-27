@@ -49,7 +49,7 @@
             <div class="Dropdown-header App-name">
                 NetworkManager
             </div>
-            <div class="Dropdown-item App-version">
+            <div class="App-version">
                 Version: v0.5.0 (Build: 20251026)
             </div>
             <hr class="Dropdown-divider">
@@ -78,24 +78,24 @@
         top: calc(100% + 5px);
         right: 0;
         width: 220px;
-        background-color: white;
+        background-color: #212836;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         z-index: 1001;
-        padding: 8px 0;
+        padding: 0;
     }
 
     .Dropdown-header {
         padding: 8px 15px;
         font-weight: bold;
-        color: #333;
+        color: #ccc;
         cursor: default;
     }
 
     .App-version {
         font-size: 0.8em;
-        color: #667;
+        color: #ccc;
         padding: 4px 15px 10px;
     }
 
@@ -103,25 +103,32 @@
         display: block;
         width: 100%;
         text-align: left;
-        padding: 10px 15px;
+        padding: 8px 15px;
         background: none;
         border: none;
         cursor: pointer;
-        color: #333;
+        color: #ccc;
         transition: background-color 0.2s;
     }
 
     .Dropdown-item:hover {
         background-color: #f0f0f0;
+        color: #212836;
     }
 
     .Logoff-button {
         color: #e74c3c;
     }
 
+    .Logoff-button:hover {
+        background-color: #e74c3c;
+        border-radius: 0 0 4px 4px;
+    }
+
     .Dropdown-divider {
         border: 0;
         height: 1px;
         background: #ecf0f1;
+        margin-bottom: 4px;
     }
 </style>
