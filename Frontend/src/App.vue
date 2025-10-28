@@ -4,10 +4,10 @@
   import CentralNavbar from './components/CentralNavbar.vue';
   import ContadorButton from './components/ContadorButton.vue';
   import CentralSidebar from './components/CentralSidebar.vue';
-  import { useSidebarStore } from './stores/useSidebarStore';
+  import { useSidebarStore } from '@/stores/useSidebarStore';
 
   const mensagem = ref('Olá, Mundo!')
-  const sidebarStore = useSidebarStore
+  const sidebarStore = useSidebarStore()
 </script>
 
 <template>
@@ -41,6 +41,7 @@
   }
   .Main-content {
     padding-top: 50px;
+    margin-left: 60px;
     padding-left: 20px;
     transition: margin-left 0.3s ease;
     min-height: 100vh;
