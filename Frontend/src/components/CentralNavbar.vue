@@ -92,6 +92,9 @@
     width: 100%;
     border-radius: 4px;
     overflow: hidden;
+}
+
+.Search-Wrapper:hover {
     border: 1px solid #ccc;
 }
 

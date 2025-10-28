@@ -29,13 +29,14 @@
 <style scoped>
     .Sidebar {
         position: fixed;
-        top: 60px;
-        height: calc(100% - 60px);
-        width: 70px;
+        left: 0;
+        top: 50px;
+        height: calc(100% - 50px);
+        width: 55px;
         background-color: #2c3e50;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        color: #ecf0f1;
         overflow-x: hidden;
-        transition: width 0.3s ease;
+        transition: width 0.3s ease, left 0.3s ease;
         z-index: 999;
     }
 
@@ -46,13 +47,13 @@
     .Menu-list {
         list-style: none;
         padding: 0;
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .Menu-item {
         display: flex;
         align-items: center;
-        padding: 15px 20px;
+        padding: 15px 10px;
         text-decoration: none;
         color: #ecf0f1;
         white-space: nowrap;

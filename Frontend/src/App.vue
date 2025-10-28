@@ -40,7 +40,7 @@
     color: #f4f4f4;
   }
   .Main-content {
-    padding-top: 80px;
+    padding-top: 50px;
     padding-left: 20px;
     transition: margin-left 0.3s ease;
     min-height: 100vh;
