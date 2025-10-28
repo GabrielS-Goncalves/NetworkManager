@@ -1,16 +1,15 @@
-<script>
-    import router from '@/router';
+<script setup>
     import { ref } from 'vue';
-
-    // Váriavel para controlar a abertura/fechamento do menu
-    const isMenuOpen = ref(false);
+    import { useSidebarStore } from '@/stores/useSidebarStore';
+    import UserDropdown from './UserDropdown.vue';
 
     // Função que será chamada ao clicar no botão hamburguer
+    // Váriavel para controlar a abertura/fechamento do menu
+    const sidebarStore = useSidebarStore();
     function toggleMenu() {
-        isMenuOpen.value = !isMenuOpen.value;
-        console.log('Menu Hamburguer clicado! Estado:', isMenuOpen.value);
+        sidebarStore.toggleSidebar();
     }
-
+    
     // Função para lógica básica da barra de pesquisa.
     const searchTerm = ref('');
     function search() {
@@ -18,32 +17,29 @@
             console.log('Pesquisando por:', searchTerm.value);
         }
     }
-
-    // Função para lógica básica do botão do usuário.
-    function goToProfile() {
-        console.log('Indo para a página de perfil...');
-    }
 </script>
 
 <template>
     <nav class="CentralNavbar">
+        <!--Divisão para Sidebar-->
         <div class="Navbar-Left">
             <button @click="toggleMenu" class="Menu-button">
-                <span class="Burguer-icon" :class="{'Is-active': isMenuOpen}">☰</span>
+                <span v-if="sidebarStore.isOpen" class="Close-icon">✖</span>
+                <span v-else class="Open-icon">☰</span>
             </button>
         </div>
 
-        <!--<div class="Navbar-logo"></div>-->
+        <!--Divisão para Search bar-->
         <div class="Navbar-center">
-            <div class="Search-bar">
-                <input type="text" v-model="searchTerm" placeholder="Search..." @keyup.enter="search">
-                <button @click="search">🔍</button>
+            <div class="Search-Wrapper">
+                <input type="text" v-model="searchTerm" placeholder="Search..." class="Search-input" @keyup.enter="search">
+                <button @click="search" class="Search-button">🔍</button>
             </div>
         </div>
+
+        <!--Divisão para User menu-->
         <div class="Navbar-right">
-            <button @click="goToProfile" class="User-button">
-                <span>👤 Opções</span>
-            </button>
+            <UserDropdown />
         </div>
     </nav>
 </template>
@@ -51,28 +47,31 @@
 <style scoped>
 /* Flexbox para o Layout da Navbar */
 .CentralNavbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #0d7233;
-    color: white;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #0d7233;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
 .Navbar-left {
+    position: relative;
     display: flex;
     align-items: center;
     flex-shrink: 0;
 }
 
 .Navbar-right {
+    position: relative;
     display: flex;
     align-items: center;
     flex-shrink: 0;
@@ -80,54 +79,83 @@
 
 .Navbar-center {
     flex-grow: 1;
-    text-align: center;
-    margin: 0 30px;
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
     min-width: 0;
 }
 
-.Search-Bar {
+.Search-Wrapper {
     display: flex;
-    width: 100%;
+    align-items: center;
     max-width: 400px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 4px;
     overflow: hidden;
 }
 
-.Search-Bar input {
-    flex-grow: 1;
-    padding: 8px;
-    border: none;
-    outline: none;
-    color: #333;
+.Search-Wrapper:hover {
+    border: 1px solid #ccc;
 }
 
-.Search-Bar button {
-    background-color: #42b883;
+.Search-input {
+    flex-grow: 1;
+    padding: 8px 15px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #212836;
+    color: #ccc;
+    height: 34px;
+    box-sizing: border-box;
+}
+
+.Search-input::placeholder{
+    color: #ccc;
+}
+
+.Search-button {
+    background-color: #212836;
     color: white;
     border: none;
+    border-left: 1px solid #ccc;
     padding: 8px 12px;
     cursor: pointer;
+    font-size: 14px;
+    height: 34px;
+    box-sizing: border-box;
     transition: background-color 0.2s;
 }
 
-.Search-Bar button:hover {
-    background-color: #368d66;
+.Search-button:hover {
+    background-color: #ccc;
 }
 
-.Menu-button, .User-button {
+.Menu-button {
     background: none;
     border: none;
     color: white;
     cursor: pointer;
-    padding: 10px;
-    font-size: 1.1em;
+    padding: 0 8px;
+    font-size: 1.2em;
     transform: opacity 0.2s;
 }
 
-.Menu-button:hover, .User-button:hover {
-    opacity: 0.8;
+.Menu-button:hover {
+    opacity: 0.6;
+}
+
+.Open-icon, .Close-icon {
+    font-weight: bold;
+    font-size: 1.2em;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    height: 100%;
+}
+
+.Close-icon {
+    transform: rotate(90deg);
+    color: #e74c3c;
 }
 
 .Burguer-icon {
