@@ -12,11 +12,11 @@
 
 <template>
   <div id="App-container">
-    <central-navbar />
-    <CentralSidebar />
+    <CentralNavbar/>
+    <CentralSidebar/>
 
     <main :class="['Main-content', {'Sidebar-active': sidebarStore.isOpen}]">
-      <router-view />
+      <router-view/>
       <h1>Bem-vindo ao NetworkManager!</h1>
       <p>Barra de navegação pronta!</p>
       <p>Barra lateral em produção!</p>
@@ -24,7 +24,7 @@
       <!--Botão contador-->
       <div>
         <h1>{{mensagem}}</h1>
-        <contador-button />
+        <contador-button/>
       </div>
     </main>
   </div>
@@ -45,6 +45,8 @@
     padding-left: 20px;
     transition: margin-left 0.3s ease;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
   }
 
   .Main-content.Sidebar-active {

@@ -82,7 +82,7 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        z-index: 1001;
+        z-index: 1010;
         padding: 0;
     }
 

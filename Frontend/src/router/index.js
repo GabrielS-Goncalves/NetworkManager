@@ -10,8 +10,8 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/ipam',
-      name: 'ipam',
+      path: '/network',
+      name: 'network',
       component: () => import('../views/IpamView.vue')
     },
     {

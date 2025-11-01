@@ -136,7 +136,7 @@
     border: none;
     color: white;
     cursor: pointer;
-    padding: 0 8px;
+    padding: 0 4px;
     font-size: 1.2em;
     transform: opacity 0.2s;
 }
