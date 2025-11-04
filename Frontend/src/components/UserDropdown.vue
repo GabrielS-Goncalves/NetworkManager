@@ -1,6 +1,9 @@
 <script setup>
     import { ref, onMounted, onUnmounted } from 'vue';
 
+    const appVersion = import.meta.env.VITE_APP_VERSION;
+    const appBuildDate = import.meta.env.VITE_APP_BUILD_DATE;
+
     // Função para controlar se o dropdown está aberto ou fechado
     // Variável para o estado reativo local
     const isUserMenuOpen = ref(false);
@@ -50,7 +53,8 @@
                 NetworkManager
             </div>
             <div class="App-version">
-                Version: v0.5.0 (Build: 20251026)
+                Version: v{{ appVersion }} <br>
+                (Build: {{ appBuildDate }})
             </div>
             <hr class="Dropdown-divider">
             <button @click="changePassword" class="Dropdown-item">Change Password</button>

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h1>General Dashboard</h1>
+    <h2>Página de users</h2>
 </template>
 
 <style>

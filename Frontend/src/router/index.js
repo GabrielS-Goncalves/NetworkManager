@@ -5,24 +5,29 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/dashboard/status',
       name: 'home',
       component: HomeView
     },
     {
-      path: '/network',
-      name: 'network',
-      component: () => import('../views/IpamView.vue')
+      path: '/network/ipam',
+      name: 'ipam',
+      component: () => import('../views/network/IpamConfigView.vue')
     },
     {
-      path: '/settings',
-      name: 'settings',
-      component: () => import('../views/SettingsView.vue')
+      path: '/syslog',
+      name: 'syslog',
+      component: () => import('../views/syslog/LogsView.vue')
     },
     {
-      path: '/logs',
-      name: 'logs',
-      component: () => import('../views/LogsView.vue')
+      path: '/administration/user',
+      name: 'user-config',
+      component: () => import('../views/administration/UserAccessConfig.vue')
+    },
+    {
+      path: '/administration/email',
+      name: 'email-config',
+      component: () => import('../views/administration/EmailConfig.vue')
     }
   ],
 })
