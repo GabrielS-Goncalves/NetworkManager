@@ -9,16 +9,16 @@ import { ref, watch } from 'vue';
             name: 'Dashboard', 
             icon: '🏠', 
             children: [
-                {name: 'General Status', to: '/dashboard/status'},
-                {name: 'IPAM Status', to: '/dashboard/ipam'},
-                {name: 'Server Status', to: '/dashboard/server'},
+                {name: 'General Status', icon: '📊', to: '/dashboard/status'},
+                {name: 'IPAM Status', icon: '🧭', to: '/dashboard/ipam'},
+                {name: 'Server Status', icon: '🖥️', to: '/dashboard/server'},
             ]
         },
         {
             name: 'Network',
             icon: '🌐',
             children: [
-                {name: 'IPAM', to: '/network/ipam'}
+                {name: 'IPAM', icon: '🧭', to: '/network/ipam'}
             ]
         },
         {
@@ -30,7 +30,7 @@ import { ref, watch } from 'vue';
             name: 'Administration',
             icon: '⚙️',
             children: [
-                {name: 'User access', icon: '👤', to: '/administration/user'},
+                {name: 'User access', icon: '🔐', to: '/administration/user'},
                 {name: 'Email Settings', icon: '📧', to: '/administration/email'}
             ]
         }
@@ -73,6 +73,7 @@ import { ref, watch } from 'vue';
                         <ul v-if="sidebarStore.isOpen && openSubMenu === item.name" class="Submenu">
                             <li v-for="child in item.children" :key="child.name">
                                 <router-link :to="child.to" class="Menu-item Submenu-item">
+                                    <span class="Icon" v-if="child.icon">{{ child.icon }}</span>
                                     <span class="Text">{{ child.name }}</span>
                                 </router-link>
                             </li>
@@ -196,9 +197,11 @@ import { ref, watch } from 'vue';
     }
 
     .Submenu-item {
-        padding-left: 55px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        display: flex;
+        align-items: center;
+        padding-left: 40px !important;
+        padding-top: 5px;
+        padding-bottom: 5px;
         font-size: 0.9em;
     }
 
@@ -208,6 +211,10 @@ import { ref, watch } from 'vue';
 
     .Submenu-item:hover .Text {
         color: white;
+    }
+
+    .Submenu-item .Icon {
+        margin-right: 10px;
     }
 
     .Icon {

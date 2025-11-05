@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <h2>Página de users</h2>
+    <h2>User Configuration</h2>
 </template>
 
 <style>

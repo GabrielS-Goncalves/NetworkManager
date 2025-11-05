@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h1>Página de Logs</h1>
+  <h1>Syslog Configuration</h1>
 </template>
 
 <style>

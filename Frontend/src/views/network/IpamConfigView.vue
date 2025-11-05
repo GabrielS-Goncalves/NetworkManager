@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h1>Página do IPAM</h1>
+  <h1>IPAM Configuration</h1>
 </template>
 
 <style>

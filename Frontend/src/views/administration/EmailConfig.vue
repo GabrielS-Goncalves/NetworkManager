@@ -1,5 +1,9 @@
-<script></script>
+<script>
+</script>
+
 <template>
-    <h2>Página de E-mail config</h2>
+    <h2>E-mail Configuration</h2>
 </template>
-<style></style>
+
+<style>
+</style>

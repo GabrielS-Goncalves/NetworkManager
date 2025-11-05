@@ -10,8 +10,18 @@ const router = createRouter({
       component: HomeView
     },
     {
+       path: '/dashboard/ipam',
+       name: 'ipam-status',
+       component: () => import('../views/monitoring/IpamStatusView.vue')
+    },
+    {
+      path: '/dashboard/server',
+      name: 'server-status',
+      component: () => import('../views/monitoring/ServerStatusView.vue')
+    },
+    {
       path: '/network/ipam',
-      name: 'ipam',
+      name: 'ipam-config',
       component: () => import('../views/network/IpamConfigView.vue')
     },
     {
@@ -33,3 +43,9 @@ const router = createRouter({
 })
 
 export default router
+
+//     {
+//       path: '/dashboard/status',
+//       name: 'home',
+//       component: () => import('../views/')
+//     },
