@@ -1,6 +1,6 @@
 <script setup>
     import { useSidebarStore } from '@/stores/useSidebarStore';
-import { ref, watch } from 'vue';
+    import { ref, watch } from 'vue';
     
     const sidebarStore = useSidebarStore();
 
