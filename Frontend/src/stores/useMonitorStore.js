@@ -63,4 +63,33 @@ export const useMonitorStore = defineStore('monitor', () => {
     });
 
     //ACTIONS (Funções que buscam ou modificam o STATE)
-})
+    //Ação para simular a busca de dados de uma API/JSON
+    async function fetchMonitoringData() {
+        console.log("Buscando novos dados de monitoramento...");
+
+        //Simulação de delay de API
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        //Simulação de uma pequena mudança nos dados:
+        const newData = {
+            ...initialMonitoringData,
+            devices: {
+                ...initialMonitoringData.devices,
+                online: initialMonitoringData.devices.online + Math.floor(Math.random() * 5)
+            },
+            lastUpdate: getBuildTime(),
+        };
+
+        //Atualiza o State, assim todos os componentes reativos se atualizam
+        data.value = newData;
+        console.log("Dados atualizados. Novos dispositivos online:", data.value.devices.online);
+    }
+
+    return {
+        data,
+        totalOnLineDevices,
+        ipV4UsagePercentual,
+        ipV6UsagePercentual,
+        fetchMonitoringData
+    };
+});
