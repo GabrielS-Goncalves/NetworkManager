@@ -11,6 +11,7 @@
 
 <template>
   <h1>General Dashboard</h1>
+  <p class="Last-update">Last update: {{ monitorStore.data.lastUpdate }}</p>
   <div class="Status-dashboard">
     <div class="Page-header">
       <h1>Status (Geral)</h1>
@@ -132,9 +133,62 @@
 
   .Stat-item .Label {
     font-size: 0.9em;
-    color: #555;
+    color: white;
     text-transform: uppercase;
   }
 
-  
+  .Stat-item.Online .Value {
+    color: #27ae60;
+  }
+
+  .Stat-item.Offline .Value {
+    color: #e74c3c;
+  }
+
+  .Stat-item.Total .Value {
+    color: #3498db;
+  }
+
+  .Stat-item.Highlight .Value {
+    color: #f39c12;
+  }
+
+  .Top-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .Top-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .Top-list li:last-child {
+    border-bottom: none;
+  }
+
+  .List-name {
+    font-weight: 500;
+  }
+
+  .List-value {
+    font-weight: 600;
+    color: white;
+  }
+
+  .Vendor-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .Vendor-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 0.9em;
+  }
 </style>

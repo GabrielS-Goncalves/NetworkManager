@@ -92,7 +92,7 @@
         top: 50px;
         height: calc(100% - 50px);
         width: 55px;
-        background-color: #2c3e50;
+        background-color: #38445c;
         color: #ecf0f1;
         transition: width 0.3s ease, left 0.3s ease;
         transform: translateZ(0);

@@ -17,9 +17,8 @@
 
 <style scoped>
     .Status-card {
-        background-color: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
+        background-color: #38445c;
+        border-radius: 4px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         display: flex;
         flex-direction: column;
@@ -37,7 +36,7 @@
     .Card-header h3 {
         margin: 0;
         font-size: 1.1em;
-        color: #333;
+        color: white;
         font-weight: 600;
     }
 

@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/dashboard/status',
       name: 'home',
-      component: HomeView
+      component: () => import('../views/monitoring/GeneralStatusView.vue')
     },
     {
        path: '/dashboard/ipam',
