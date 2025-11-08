@@ -24,7 +24,9 @@
         {
             name: 'Syslog',
             icon: '📑',
-            to: '/syslog'
+            children: [
+                {name: 'Linux Logs', icon: '🐧', to: '/syslog/linux'}
+            ]
         },
         {
             name: 'Administration',

@@ -25,9 +25,9 @@ const router = createRouter({
       component: () => import('../views/network/IpamConfigView.vue')
     },
     {
-      path: '/syslog',
-      name: 'syslog',
-      component: () => import('../views/syslog/LogsView.vue')
+      path: '/syslog/linux',
+      name: 'linux-log',
+      component: () => import('../views/syslog/LinuxLogs.vue')
     },
     {
       path: '/administration/user',
