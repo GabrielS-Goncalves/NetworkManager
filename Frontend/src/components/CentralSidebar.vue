@@ -18,7 +18,23 @@
             name: 'Network',
             icon: '🌐',
             children: [
-                {name: 'IPAM', icon: '🧭', to: '/network/ipam'}
+                {name: 'IPAM', icon: '🧭', to: '/network/ipam'},
+                {name: 'Vlans', icon: '🎡', to: '/network/vlans'}
+            ]
+        },
+        {
+            name: 'Remote',
+            icon: '🕹️',
+            children: [
+                {name: 'Connections', icon: '🖥️', to: '/remote/connections'},
+                {name: 'Groups', icon: '👥', to: '/remote/groups'}
+            ]
+        },
+        {
+            name: 'Inventory',
+            icon: '📚',
+            children: [
+                {name: 'Devices', icon: '🔬', to: '/inventory/devices'},
             ]
         },
         {
@@ -33,7 +49,7 @@
             icon: '⚙️',
             children: [
                 {name: 'User access', icon: '🔐', to: '/administration/user'},
-                {name: 'Email Settings', icon: '📧', to: '/administration/email'}
+                {name: 'E-mail Settings', icon: '📧', to: '/administration/email'}
             ]
         }
     ]);
@@ -41,6 +57,12 @@
     const openSubMenu = ref(null);
 
     function toggleSubMenu(itemName) {
+
+        if (!openSubMenu.isOpen) {
+            sidebarStore.openSidebar();
+            openSubMenu.value = itemName;
+            return;
+        }
         if (openSubMenu.value === itemName) {
             openSubMenu.value = null;
         } else {
@@ -53,6 +75,14 @@
             openSubMenu.value = null
         }
     });
+
+    function handleLinkClick() {
+        if (!sidebarStore.isOpen) {
+            sidebarStore.openSidebar();
+            return;
+        }
+        sidebarStore.closeSidebar();
+    }
 </script>
 
 <template>
@@ -60,7 +90,7 @@
         <nav>
             <ul class="Menu-list">
                 <li v-for="item in menuItems" :key="item.name">
-                    <router-link v-if="!item.children" :to="item.to" class="Menu-item" :data-tooltip="item.name">
+                    <router-link v-if="!item.children" :to="item.to" class="Menu-item" :data-tooltip="item.name" @click="handleLinkClick">
                         <span class="Icon">{{ item.icon }}</span>
                         <span class="Text" v-if="sidebarStore.isOpen">{{ item.name }}</span>
                     </router-link>

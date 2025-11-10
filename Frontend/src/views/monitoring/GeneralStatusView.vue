@@ -1,21 +1,42 @@
 <script setup>
   import { useMonitorStore } from '@/stores/useMonitorStore';
+  import { computed } from 'vue';
   import StatusCard from '@/components/monitoring/StatusCard.vue';
 
   // Conecta-se á Store do Pinia
   const monitorStore = useMonitorStore();
+
+  // Configuração padrão do Tooltip
+  const chartToolTip = {
+    followCursor: true,
+    theme: 'dark',
+  };
+
+  // Status dos Dispositivos (Donut Chart)
+  const DeviceStatusSeries = computed(() => [
+    monitorStore.data.devices.online,
+    monitorStore.data.devices.offline
+  ]);
+
+  const DeviceStatusOptions = computed(() => ({
+    chart: {type: 'donut'},
+    labels: ['Online', 'Offline'],
+    colors: ['#27ae00', '#e74c3c'],
+    tooltip: chartToolTip,
+    legend: {show: true, position: 'bottom'}
+  }));
+
+  
 
   // Chama a ação para buscar/atualizar os dados quando a página carrega.
   // monitorStore.fetchMonitoringData();
 </script>
 
 <template>
-  <h1>General Dashboard</h1>
-  <p class="Last-update">Last update: {{ monitorStore.data.lastUpdate }}</p>
   <div class="Status-dashboard">
     <div class="Page-header">
-      <h1>Status (Geral)</h1>
-      <p class="Last-update">Última atualização: {{ monitorStore.data.lastUpdate }}</p>
+      <h1>Global Dashboard</h1>
+      <p class="Last-update">Last update: {{ monitorStore.data.lastUpdate }}</p>
     </div>
 
     <div class="Dashboard-grid">

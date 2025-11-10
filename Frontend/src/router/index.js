@@ -25,6 +25,26 @@ const router = createRouter({
       component: () => import('../views/network/IpamConfigView.vue')
     },
     {
+      path: '/network/vlans',
+      name: 'vlans-config',
+      component: () => import('../views/network/VlansConfigView.vue')
+    },
+    {
+      path: '/remote/connections',
+      name: 'connections-config',
+      component: () => import('../views/remote/ConnectionConfigView.vue')
+    },
+    {
+      path: '/remote/groups',
+      name: 'groups-config',
+      component: () => import('../views/remote/GroupConfigView.vue')
+    },
+    {
+      path: '/inventory/devices',
+      name: 'devices-config',
+      component: () => import('../views/inventory/DevicesConfigView.vue')
+    },
+    {
       path: '/syslog/linux',
       name: 'linux-log',
       component: () => import('../views/syslog/LinuxLogs.vue')
@@ -43,9 +63,3 @@ const router = createRouter({
 })
 
 export default router
-
-//     {
-//       path: '/dashboard/status',
-//       name: 'home',
-//       component: () => import('../views/')
-//     },
